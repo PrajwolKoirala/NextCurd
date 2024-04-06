@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import CardWrapper from "./CardWrapper";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -24,6 +25,8 @@ import {login} from "@/app/actions/login";
 
 
 const LoginForm = () => {
+
+
 const [error, setError] = useState<string | undefined>("");
 const [success, setSuccess] = useState<string | undefined>("");
 
@@ -44,8 +47,8 @@ const [success, setSuccess] = useState<string | undefined>("");
     startTransition(() => {
       login(values)
         .then((data) => {
-          setError(data.error);
-          setSuccess(data.success);
+          setError(data?.error);
+          // setSuccess(data?.success);
         })
     })
     
