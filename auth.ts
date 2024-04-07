@@ -29,7 +29,7 @@ events: {
       where: { id:user.id },
       data: { emailVerified: new Date()}
     })
-  }
+  } 
 },
 
   callbacks: {
